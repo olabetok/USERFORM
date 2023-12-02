@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>BASTA FORM INI</title>
+    <h2>BASTA FORM INI</h2>
+    <style>
+.center-container {
+
+  text-align: center;
+  border: 10px solid #ccc;
+  padding: 100px;
+  display: inline-block;
+}
+#userform {
+  border: px solid #ddd;
+  padding: 10px ;
+  margin-bottom: 10px;
+}
+
+    </style>
+</head>
+<body>
+  
+<div class="center-container"
+    <form id="userForm">
+        First Name: <input type="text" id="firstName">
+        <br><br>
+        Last Name: <input type="text" id="lastName">
+        <br><br>
+        Age: <input type="text" id="age">
+        <br><br>
+        Gender:
+        <input type="radio" name="gender" value="male"> Male
+        <input type="radio" name="gender" value="female"> Female
+        <br><br>
+        Birthdate: <input type="text" id="birthdate">
+        <br><br>
+        Address: <input type="text" id="address">
+        <br><br>
+        Email Address: <input type="text" id="emailAddress">
+        <br><br>
+        <input type="button" value="Submit" onclick="submitForm()">
+    </form>
+
+    <div id="userData"></div>
+
+    <script>
+        function submitForm() {
+            var firstName = document.getElementById('firstName').value;
+            var lastName = document.getElementById('lastName').value;
+            var age = document.getElementById('age').value;
+            var gender = document.querySelector('input[name="gender"]:checked') ? document.querySelector('input[name="gender"]:checked').value : '';
+            var birthdate = document.getElementById('birthdate').value;
+            var address = document.getElementById('address').value;
+            var emailAddress = document.getElementById('emailAddress').value;
+
+            var user = {
+                firstName: firstName,
+                lastName: lastName,
+                age: age,
+                gender: gender,
+                birthdate: birthdate,
+                address: address,
+                emailAddress: emailAddress
+            };
+
+            // Display user data on the page
+            document.getElementById('userData').innerHTML = `
+                <strong>User Data:</strong><br>
+                First Name: ${user.firstName}<br>
+                Last Name: ${user.lastName}<br>
+                Age: ${user.age}<br>
+                Gender: ${user.gender}<br>
+                Birthdate: ${user.birthdate}<br>
+                Address: ${user.address}<br>
+                Email Address: ${user.emailAddress}
+            `;
+        }
+    </script>
+
+</body>
+</html>
